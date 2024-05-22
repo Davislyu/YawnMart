@@ -12,14 +12,18 @@
   },
   "dependencies": {
     "@radix-icons/vue": "^1.0.0",
+    "@vee-validate/zod": "^4.12.8",
+    "@vueuse/core": "^10.9.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "pinia": "^2.1.7",
     "radix-vue": "^1.8.1",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
+    "vee-validate": "^4.12.8",
     "vue": "^3.4.21",
-    "vue-router": "^4.3.0"
+    "vue-router": "^4.3.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@tsconfig/node20": "^20.1.4",

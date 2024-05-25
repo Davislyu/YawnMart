@@ -2,7 +2,9 @@ import { defineStore } from "pinia";
 import axios from "@/plugins/axios";
 import type { APIResponse, User } from "@/types/index";
 export const userAuthStore = defineStore("AuthStore", {
-  state: () => ({}),
+  state: () => ({
+    user: {} as User,
+  }),
 
   actions: {
     async registerUser(form: Record<string, string>) {
@@ -33,7 +35,21 @@ export const userAuthStore = defineStore("AuthStore", {
           >("/users/login", {
             ...form,
           });
-          console.log("Login", data.data);
+
+          this.user = data.data.user;
+          console.log("LOGIN", data.data);
+          localStorage.setItem(
+            "currentUserContent",
+            JSON.stringify(data.data.user)
+          );
+          localStorage.setItem(
+            "currentAuthTokens",
+            JSON.stringify({
+              accessToken: data.data.accessToken,
+              refreshToken: data.data.refreshToken,
+            })
+          );
+
           resolve(data.data.user);
         } catch (error) {
           reject(error);

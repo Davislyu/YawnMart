@@ -12,7 +12,7 @@
   import { Button } from "@/components/ui/button";
   import { Input } from "@/components/ui/input";
   import { Label } from "@/components/ui/label";
-
+  import { userAuthStore } from "@/stores/authStore";
   type PAYLOAD = {
     password: string;
     username: string;
@@ -22,10 +22,12 @@
     username: "hafiz",
   });
   const router = useRouter();
+  const store = userAuthStore();
 
   const onSubmit = async () => {
     try {
-      router.push("/"); //Routing to HomeView.vue
+      await store.loginUser(form.value);
+      await router.push("/"); //Routing to HomeView.vue
     } catch (error) {
       console.log(error);
     } finally {

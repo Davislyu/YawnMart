@@ -20,6 +20,7 @@
     SelectTrigger,
     SelectValue,
   } from "@/components/ui/select";
+  import { userAuthStore } from "@/stores/authStore";
   type PAYLOAD = {
     email: string;
     password: string;
@@ -33,9 +34,10 @@
     role: "ADMIN",
   });
   const router = useRouter();
-
+  const store = userAuthStore();
   const onSubmit = async () => {
     try {
+      await store.registerUser(form.value);
       router.push("/"); //Routing to HomeView.vue
     } catch (error) {
       console.log(error);
@@ -93,7 +95,7 @@
           </CardContent>
 
           <CardFooter class="flex-col space-y-2">
-            <Button class="w-full" type="submit"> Login </Button>
+            <Button class="w-full" type="submit"> Register </Button>
             <p>
               Already have an account?
               <RouterLink

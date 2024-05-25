@@ -12,14 +12,25 @@
   import { Button } from "@/components/ui/button";
   import { Input } from "@/components/ui/input";
   import { Label } from "@/components/ui/label";
-
+  import {
+    Select,
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+  } from "@/components/ui/select";
   type PAYLOAD = {
+    email: string;
     password: string;
     username: string;
+    role: "ADMIN" | "USER";
   };
   const form = ref<PAYLOAD>({
     password: "password",
     username: "hafiz",
+    email: "hafiz@gmail.com",
+    role: "ADMIN",
   });
   const router = useRouter();
 
@@ -39,12 +50,20 @@
       <form @submit.prevent="onSubmit">
         <Card class="overflow-y-auto">
           <CardHeader class="space-y-1">
-            <CardTitle class="text-2xl"> Welcome Back </CardTitle>
+            <CardTitle class="text-2xl"> Create an account </CardTitle>
             <CardDescription>
-              Enter your details below to login
+              Enter your details below to create your account
             </CardDescription>
           </CardHeader>
           <CardContent class="grid gap-4">
+            <div class="grid gap-2">
+              <Label for="username">Email</Label>
+              <Input
+                id="email"
+                type="email"
+                placeholder="email"
+                v-model="form.email" />
+            </div>
             <div class="grid gap-2">
               <Label for="username">Username</Label>
               <Input
@@ -57,16 +76,30 @@
               <Label for="password">Password</Label>
               <Input id="password" type="password" v-model="form.password" />
             </div>
+            <div class="grid grid-1">
+              <Label for="role" Role></Label>
+              <Select v-model="form.role" id="role">
+                <SelectTrigger>
+                  <SelectValue placeholder="Select role" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectGroup>
+                    <SelectItem value="USER">USER</SelectItem>
+                    <SelectItem value="ADMIN">ADMIN</SelectItem>
+                  </SelectGroup>
+                </SelectContent>
+              </Select>
+            </div>
           </CardContent>
 
           <CardFooter class="flex-col space-y-2">
             <Button class="w-full" type="submit"> Login </Button>
             <p>
-              Don't have an account?
+              Already have an account?
               <RouterLink
-                to="/auth/register"
+                to="/auth/login"
                 class="border-b border-gray-500 text-muted-foreground hover:text-primary">
-                Register
+                Login
               </RouterLink>
             </p>
           </CardFooter>

@@ -30,3 +30,19 @@ export type Category = {
   owner: string;
   updatedAt: string;
 };
+
+type paginationContent = {
+  hasNextPage: true;
+  hasPrevPage: boolean;
+  limit: number;
+  nextPage: number | null;
+  page: number;
+  prevPage: number | null;
+  serialNumberStartFrom: number;
+  totalPages: number;
+};
+
+export type Categories = paginationContent & {
+  totalCategories: number;
+  categories: Category[];
+};

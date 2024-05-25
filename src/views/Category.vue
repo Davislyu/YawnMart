@@ -1,12 +1,14 @@
 <script setup lang="ts">
-  import { ref } from "vue";
+  import { ref, onMounted } from "vue";
   import { useRouter } from "vue-router";
   import { Card, CardContent, CardFooter } from "@/components/ui/card";
   import { Button } from "@/components/ui/button";
   import { Input } from "@/components/ui/input";
   import { Label } from "@/components/ui/label";
   import { userCategoryStore } from "@/stores/categoryStore";
+  import { useGlobalLoader } from "vue-global-loader";
 
+  const { displayLoader, destroyLoader } = useGlobalLoader();
   type PAYLOAD = {
     name: string;
   };
@@ -20,13 +22,28 @@
 
   const onSubmit = async () => {
     try {
+      displayLoader();
       await store.createCategory(form.value);
       router.push("/");
     } catch (error) {
       console.log(error);
     } finally {
+      destroyLoader();
     }
   };
+  const fetchCategories = async () => {
+    try {
+      displayLoader();
+      await store.getCategories(1, 2);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      destroyLoader();
+    }
+  };
+  onMounted(async () => {
+    await fetchCategories();
+  });
 </script>
 
 <template>

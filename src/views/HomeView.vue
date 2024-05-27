@@ -1,12 +1,35 @@
 <script setup lang="ts">
   import { Button } from "@/components/ui/button";
+  import ProductModal from "@/components/ProductModal.vue";
+  import productModal from "@/composables/useProductModal";
+  import { userCategoryStore } from "@/stores/categoryStore";
+  const { onOpen, isOpen } = productModal();
+  const categoryStore = userCategoryStore();
+  import { useGlobalLoader } from "vue-global-loader";
+  import { onMounted } from "vue";
+
+  const { displayLoader, destroyLoader } = useGlobalLoader();
+  const fetchCategories = async () => {
+    try {
+      displayLoader();
+      await categoryStore.getCategories(1, 2);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      destroyLoader();
+    }
+  };
+  onMounted(async () => {
+    await fetchCategories();
+  });
 </script>
 
 <template>
+  <productModal v-if="isOpen" />
   <div class="w-full max-w-4xl mx-auto my-10">
     <div class="flex items-center justify-between">
       <h3 class="text-2xl font-bold">All Products</h3>
-      <Button>Add Product</Button>
+      <Button @click="onOpen">Add Product</Button>
     </div>
   </div>
 </template>

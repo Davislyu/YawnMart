@@ -1,4 +1,5 @@
 <script setup lang="ts">
+  import { defineModel } from "vue";
   import {
     Dialog,
     DialogContent,
@@ -7,13 +8,13 @@
     DialogHeader,
     DialogTitle,
   } from "@/components/ui/dialog";
-  import { defineModel, defineEmits } from "vue";
 
   interface Props {
     title?: string;
     description?: string;
   }
   defineProps<Props>();
+
   const isOpen = defineModel("isOpen", {
     required: true,
     type: Boolean,
@@ -24,12 +25,15 @@
 <template>
   <Dialog :open="isOpen" @update:open="emit('onClose')">
     <DialogContent>
+      <DialogTitle>Dialog Title</DialogTitle>
+
       <DialogHeader>
-        <DialogTitle> v-if="title" {{ title }}</DialogTitle>
+        <DialogTitle v-if="title"> {{ title }} </DialogTitle>
         <DialogDescription v-if="description">
           {{ description }}
         </DialogDescription>
       </DialogHeader>
+
       <slot />
     </DialogContent>
   </Dialog>

@@ -27,7 +27,7 @@
   const onSubmit = async () => {
     try {
       await store.loginUser(form.value);
-      await router.push("/"); //Routing to HomeView.vue
+      await router.push("/");
     } catch (error) {
       console.log(error);
     } finally {

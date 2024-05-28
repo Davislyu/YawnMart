@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 import axios from "@/plugins/axios";
 import type { APIResponse, Category, Categories } from "@/types/index";
 
-export const userCategoryStore = defineStore("CategoryStore", {
+export const useCategoryStore = defineStore("CategoryStore", {
   state: () => ({
     categoriesData: {} as Categories,
   }),

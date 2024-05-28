@@ -5,7 +5,7 @@
   import { Button } from "@/components/ui/button";
   import { Input } from "@/components/ui/input";
   import { Label } from "@/components/ui/label";
-  import { userCategoryStore } from "@/stores/categoryStore";
+  import { useCategoryStore } from "@/stores/categoryStore";
   import { useGlobalLoader } from "vue-global-loader";
 
   const { displayLoader, destroyLoader } = useGlobalLoader();
@@ -18,7 +18,7 @@
   });
 
   const router = useRouter();
-  const store = userCategoryStore();
+  const store = useCategoryStore();
 
   const onSubmit = async () => {
     try {

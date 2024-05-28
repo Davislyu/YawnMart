@@ -15,7 +15,7 @@
     "@iconify-json/radix-icons": "^1.1.14",
     "@radix-icons/vue": "^1.0.0",
     "@vee-validate/zod": "^4.12.8",
-    "@vueuse/core": "^10.9.0",
+    "@vueuse/core": "^10.10.0",
     "axios": "^1.7.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",

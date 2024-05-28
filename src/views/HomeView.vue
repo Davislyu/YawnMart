@@ -2,9 +2,9 @@
   import { Button } from "@/components/ui/button";
   import ProductModal from "@/components/ProductModal.vue";
   import productModal from "@/composables/useProductModal";
-  import { userCategoryStore } from "@/stores/categoryStore";
+  import { useCategoryStore } from "@/stores/categoryStore";
   const { onOpen, isOpen } = productModal();
-  const categoryStore = userCategoryStore();
+  const categoryStore = useCategoryStore();
   import { useGlobalLoader } from "vue-global-loader";
   import { onMounted } from "vue";
 
@@ -12,7 +12,7 @@
   const fetchCategories = async () => {
     try {
       displayLoader();
-      await categoryStore.getCategories(1, 2);
+      await categoryStore.getCategories(1, 5);
     } catch (error) {
       console.log(error);
     } finally {

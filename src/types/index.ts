@@ -46,3 +46,23 @@ export type Categories = paginationContent & {
   totalCategories: number;
   categories: Category[];
 };
+
+export type Product = {
+  __v: number;
+  _id: string;
+  category: string;
+  createdAt: string;
+  description: string;
+  mainImage: Image;
+  name: string;
+  owner: string;
+  price: number;
+  stock: number;
+  subImages: Image[];
+  updatedAt: string;
+};
+
+export type Products = paginationContent & {
+  totalProducts: number;
+  products: Product[];
+};

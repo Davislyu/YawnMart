@@ -7,12 +7,32 @@
   const categoryStore = useCategoryStore();
   import { useGlobalLoader } from "vue-global-loader";
   import { onMounted } from "vue";
-
+  import { useProductStore } from "@/stores/productStore";
+  const productStore = useProductStore();
   const { displayLoader, destroyLoader } = useGlobalLoader();
+  ////////////////////////
   const fetchCategories = async () => {
     try {
-      displayLoader();
       await categoryStore.getCategories(1, 5);
+    } catch (error) {
+      console.log(error);
+    } finally {
+    }
+  };
+
+  const fetchProducts = async () => {
+    try {
+      await productStore.getProducts(1, 5);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const initialSetup = async () => {
+    try {
+      displayLoader();
+      await fetchCategories();
+      await fetchProducts();
     } catch (error) {
       console.log(error);
     } finally {
@@ -20,7 +40,7 @@
     }
   };
   onMounted(async () => {
-    await fetchCategories();
+    await initialSetup();
   });
 </script>
 

@@ -7,6 +7,16 @@
     CardHeader,
     CardTitle,
   } from "@/components/ui/card";
+  import {
+    Pagination,
+    PaginationEllipsis,
+    PaginationFirst,
+    PaginationLast,
+    PaginationList,
+    PaginationListItem,
+    PaginationNext,
+    PaginationPrev,
+  } from "@/components/ui/pagination";
   import { Button } from "@/components/ui/button";
   import { Icon } from "@iconify/vue";
   import ProductModal from "@/components/ProductModal.vue";
@@ -99,5 +109,40 @@
         </CardFooter>
       </Card>
     </div>
+    <Pagination
+      v-slot="{ page }"
+      show-edges
+      :items-per-page="5"
+      :total="totalProducts"
+      :default-page="1">
+      <PaginationList v-slot="{ items }" class="flex items-center gap-1">
+        <PaginationFirst @click="currentPage = 1" />
+        <PaginationPrev @click="currentPage = currentPage - 1" />
+
+        <template v-for="(item, index) in items">
+          <PaginationListItem
+            v-if="item.type === 'page'"
+            :key="index"
+            :value="item.value"
+            as-child>
+            <Button
+              class="w-10 h-10 p-0"
+              :variant="item.value === page ? 'default' : 'outline'"
+              @click="
+                async () => {
+                  currentPage = item.value;
+                  await fetchProducts();
+                }
+              ">
+              {{ item.value }}
+            </Button>
+          </PaginationListItem>
+          <PaginationEllipsis v-else :key="item.type" :index="index" />
+        </template>
+
+        <PaginationNext @click="currentPage + 1" />
+        <PaginationLast @click="currentPage = totalPages" />
+      </PaginationList>
+    </Pagination>
   </div>
 </template>

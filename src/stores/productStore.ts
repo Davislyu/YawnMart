@@ -46,6 +46,7 @@ export const useProductStore = defineStore("ProductStore", {
         }
       });
     },
+
     async deleteProduct(productId: string) {
       return new Promise(async (resolve, reject) => {
         try {

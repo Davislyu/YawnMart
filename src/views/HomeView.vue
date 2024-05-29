@@ -17,6 +17,7 @@
     PaginationNext,
     PaginationPrev,
   } from "@/components/ui/pagination";
+  import { useToast } from "@/components/ui/toast/use-toast";
   import { Button } from "@/components/ui/button";
   import { Icon } from "@iconify/vue";
   import ProductModal from "@/components/ProductModal.vue";
@@ -30,7 +31,7 @@
   const productStore = useProductStore();
   const { displayLoader, destroyLoader } = useGlobalLoader();
   const products = computed(() => productStore.productsData.products);
-
+  const { toast } = useToast();
   const totalPages = computed(() => productStore.productsData.totalPages);
 
   const totalProducts = computed(() => productStore.productsData.totalProducts);
@@ -53,6 +54,23 @@
       await productStore.getProducts(currentPage.value, 5);
     } catch (error) {
       console.log(error);
+    }
+  };
+
+  const deleteProd = async (id: string, name: string) => {
+    try {
+      displayLoader();
+      await productStore.deleteProduct(id);
+    } catch (error) {
+      console.log(`Error: ${error}`);
+    } finally {
+      destroyLoader();
+
+      toast({
+        title: `Deleted!`,
+        description: `Successully deleted ${name}`,
+        variant: "destructive",
+      });
     }
   };
 
@@ -99,10 +117,14 @@
         <CardFooter class="justify-between w-full p-4 pt-4 border-t">
           <p>{{ product.price }}$</p>
           <div class="flex space-x-2">
-            <Button variant="secondary">
+            <Button
+              variant="secondary"
+              @click="$router.push(`/products/${product._id}`)">
               <Icon icon="mdi:pencil-outline" class="w-4 h-4" />
             </Button>
-            <Button variant="destructive">
+            <Button
+              @click="deleteProd(product._id, product.name)"
+              variant="destructive">
               <Icon icon="ph:trash-bold" class="w-4 h-4" />
             </Button>
           </div>

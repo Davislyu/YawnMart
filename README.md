@@ -1,33 +1,122 @@
-# Vue-course
 
-This template should help get you started developing with Vue 3 in Vite.
+# 💤 YawnMart: The Snooze-Worthy Shopping Experience
 
-## Recommended IDE Setup
+Welcome to **YawnMart**, yet another common, boring e-commerce website. We know the web is full of similar projects, but hey, a GitHub profile isn't complete without one! 😄
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Table of Contents
 
-## Type Support for `.vue` Imports in TS
+- [Introduction](#introduction)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Setup Instructions](#setup-instructions)
+- [Project Structure](#project-structure)
+- [Contributing](#contributing)
+- [License](#license)
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+## Introduction
 
-## Customize configuration
+YawnMart is an e-commerce platform that brings you the most mundane shopping experience. It's built as a personal project to showcase my web development skills and to complete my GitHub profile. We might not have reinvented the wheel, but we sure had fun building it! 😴
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## Features
 
-## Project Setup
+- 🛒 **Product Management**: Add, edit, and delete products (yawn).
+- 🔐 **Authentication**: Secure login and registration system (because security is important, even in boring projects).
+- 🗂️ **Category Management**: Organize products into categories (we need some order in the chaos).
 
-```sh
-npm install
-```
+## Technologies Used
 
-### Compile and Hot-Reload for Development
+### Frontend
 
-```sh
-npm run dev
-```
+- **Vue 3**: The progressive JavaScript framework for building user interfaces.
+- **Vue Router**: Official router for Vue.js, enabling navigation and route management.
+- **Tailwind CSS**: A utility-first CSS framework for rapid UI development.
+- **vue-global-loader**: A simple and customizable global loading spinner for Vue.js.
+- **Notivue**: A notification library for Vue.js with easy-to-use APIs and customizable components.
 
-### Type-Check, Compile and Minify for Production
+### Additional Libraries
 
-```sh
-npm run build
-```
+- **clsx**: Utility for constructing `className` strings conditionally.
+- **tailwind-merge**: Utility for merging Tailwind CSS classes.
+- **Axios**: Promise-based HTTP client for the browser and Node.js.
+
+## Setup Instructions
+
+### Prerequisites
+
+- Node.js (v14 or higher)
+- npm (v6 or higher) or yarn (v1 or higher)
+
+### Installation
+
+1. **Clone the repository**:
+   \`\`\`sh
+   git clone https://github.com/Davislyu/YawnMart.git
+   cd YawnMart
+   \`\`\`
+
+2. **Install dependencies**:
+   \`\`\`sh
+   npm install
+   # or
+   yarn install
+   \`\`\`
+
+3. **Run the application**:
+   \`\`\`sh
+   npm run dev
+   # or
+   yarn dev
+   \`\`\`
+
+4. **Open your browser** and navigate to \`http://localhost:3000\`.
+
+## Project Structure
+
+\`\`\`plaintext
+YawnMart/
+├── public/               # Static files
+├── src/
+│   ├── assets/           # Images, fonts, etc.
+│   ├── components/       # Vue components
+│   ├── views/            # View components
+│   ├── store/            # Vuex store
+│   ├── router/           # Vue router configuration
+│   ├── utils/            # Utility functions
+│   ├── App.vue           # Main Vue component
+│   ├── main.ts           # Entry point
+├── .gitignore            # Git ignore file
+├── README.md             # Project documentation
+├── package.json          # NPM package file
+└── tailwind.config.js    # Tailwind CSS configuration
+\`\`\`
+
+## Contributing
+
+We welcome contributions from the community! To contribute:
+
+1. **Fork the repository**.
+2. **Create a new branch**:
+   \`\`\`sh
+   git checkout -b feature/your-feature-name
+   \`\`\`
+3. **Commit your changes**:
+   \`\`\`sh
+   git commit -m "Add some feature"
+   \`\`\`
+4. **Push to the branch**:
+   \`\`\`sh
+   git push origin feature/your-feature-name
+   \`\`\`
+5. **Create a Pull Request**.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+Thank you for checking out **YawnMart**! If you have any questions or feedback, feel free to reach out. Happy coding! 🚀
+
+---
+
+![YawnMart](https://user-images.githubusercontent.com/yourimage.jpg)

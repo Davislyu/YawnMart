@@ -29,7 +29,7 @@
 </script>
 
 <template>
-  <div class="border-b">
+  <div class="navbar-container">
     <div class="flex items-center h-16 px-4">
       <!-- Logo -->
       <!-- Nav -->
@@ -38,24 +38,24 @@
           <template v-if="!currentUser">
             <RouterLink
               to="/auth/login"
-              class="text-sm font-medium transition-colors text-muted-foreground hover:text-primary">
+              class="text-sm font-medium transition-colors link black text-muted-foreground hover:text-primary">
               Login
             </RouterLink>
             <RouterLink
               to="/auth/register"
-              class="text-sm font-medium transition-colors text-muted-foreground hover:text-primary">
+              class="text-sm font-medium transition-colors link text-muted-foreground hover:text-primary">
               Register
             </RouterLink>
           </template>
           <template v-else>
             <RouterLink
               to="/"
-              class="text-sm font-medium transition-colors text-muted-foreground hover:text-primary">
+              class="text-sm font-medium transition-colors link text-muted-foreground hover:text-primary">
               Home
             </RouterLink>
             <RouterLink
               to="/category"
-              class="text-sm font-medium transition-colors text-muted-foreground hover:text-primary">
+              class="text-sm font-medium transition-colors link text-muted-foreground hover:text-primary">
               Categories
             </RouterLink>
             <DropdownMenu>
@@ -103,3 +103,18 @@
     </div>
   </div>
 </template>
+
+<style scoped>
+  .link {
+    color: black;
+  }
+  .navbar-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    z-index: 1000000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+</style>

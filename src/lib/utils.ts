@@ -15,12 +15,20 @@ export const handleSuccess = (title: string, message: string) => {
   });
 };
 export const handleError = (err: any) => {
-  const error = err.response.data as Error;
-  push.error({
-    title: error.statusCode.toString(),
-    message: error.message,
-  });
+  if (err.response && err.response.data) {
+    const error = err.response.data as Error;
+    push.error({
+      title: error.statusCode.toString(),
+      message: error.message,
+    });
+  } else {
+    push.error({
+      title: "Error",
+      message: "An unexpected error occurred.",
+    });
+  }
 };
+
 export function getLocalStorageData<T>(key: string, verifyData?: boolean) {
   const data = window.localStorage.getItem(key);
   if (verifyData) {

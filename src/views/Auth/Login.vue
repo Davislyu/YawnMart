@@ -35,7 +35,6 @@
       );
     } catch (error) {
       handleError(error);
-
       console.log(error);
     } finally {
     }
@@ -43,7 +42,8 @@
 </script>
 
 <template>
-  <div class="flex flex-col items-center justify-center min-h-screen">
+  <div
+    class="flex flex-col items-center justify-center min-h-screen container-login">
     <div class="w-full max-w-md mx-auto">
       <form @submit.prevent="onSubmit">
         <Card class="overflow-y-auto">
@@ -84,3 +84,5 @@
     </div>
   </div>
 </template>
+
+<style scoped></style>

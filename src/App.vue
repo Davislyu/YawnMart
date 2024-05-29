@@ -5,6 +5,7 @@
   import Toaster from "@/components/ui/toast/Toaster.vue";
   import { Notivue, Notification } from "notivue";
   import Navbar from "./components/Navbar.vue";
+  import backgroundVideo from "./assets/backgroundVideo.mp4";
 </script>
 
 <template>
@@ -15,6 +16,30 @@
   <Notivue v-slot="item">
     <Notification :item="item" />
   </Notivue>
+  <video autoplay loop muted playsinline class="background-video">
+    <source :src="backgroundVideo" type="video/mp4" />
+  </video>
   <Navbar />
-  <RouterView />
+  <div class="main-content">
+    <RouterView />
+  </div>
 </template>
+
+<style scoped>
+  .background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  }
+
+  .main-content {
+    position: relative;
+    z-index: 10;
+    padding-top: 64px; /* Adjust this value based on the height of the navbar */
+  }
+</style>

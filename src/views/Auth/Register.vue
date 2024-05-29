@@ -29,9 +29,9 @@
     role: "ADMIN" | "USER";
   };
   const form = ref<PAYLOAD>({
-    password: "password",
-    username: "hafiz",
-    email: "hafiz@gmail.com",
+    password: "",
+    username: "",
+    email: "",
     role: "ADMIN",
   });
   const router = useRouter();
@@ -54,10 +54,10 @@
 </script>
 
 <template>
-  <div class="flex flex-col items-center justify-center min-h-screen">
+  <div class="flex flex-col items-center justify-center">
     <div class="w-full max-w-md mx-auto">
       <form @submit.prevent="onSubmit">
-        <Card class="overflow-y-auto">
+        <Card class="overflow-y-auto card-container">
           <CardHeader class="space-y-1">
             <CardTitle class="text-2xl"> Create an account </CardTitle>
             <CardDescription>
@@ -83,7 +83,11 @@
             </div>
             <div class="grid gap-2">
               <Label for="password">Password</Label>
-              <Input id="password" type="password" v-model="form.password" />
+              <Input
+                id="password"
+                placeholder="password"
+                ype="password"
+                v-model="form.password" />
             </div>
             <div class="grid grid-1">
               <Label for="role" Role></Label>

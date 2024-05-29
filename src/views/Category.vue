@@ -47,8 +47,8 @@
 </script>
 
 <template>
-  <div class="flex flex-col items-center justify-center min-h-screen">
-    <div class="flex flex-col w-full max-w-md mx-auto border border-red-900">
+  <div class="flex flex-col items-center justify-center min-h-full">
+    <div class="flex flex-col w-full max-w-md mx-auto">
       <form @submit.prevent="onSubmit">
         <Card class="pt-4 overflow-y-auto">
           <CardContent class="grid gap-4">

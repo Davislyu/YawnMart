@@ -19,8 +19,8 @@
     username: string;
   };
   const form = ref<PAYLOAD>({
-    password: "password",
-    username: "hafiz",
+    password: "",
+    username: "",
   });
   const router = useRouter();
   const store = useAuthStore();
@@ -42,8 +42,7 @@
 </script>
 
 <template>
-  <div
-    class="flex flex-col items-center justify-center min-h-screen container-login">
+  <div class="flex flex-col items-center justify-center container-login">
     <div class="w-full max-w-md mx-auto">
       <form @submit.prevent="onSubmit">
         <Card class="overflow-y-auto">
@@ -64,7 +63,11 @@
             </div>
             <div class="grid gap-2">
               <Label for="password">Password</Label>
-              <Input id="password" type="password" v-model="form.password" />
+              <Input
+                id="password"
+                placeholder="password"
+                ype="password"
+                v-model="form.password" />
             </div>
           </CardContent>
 

@@ -49,26 +49,26 @@ YawnMart is an e-commerce platform that brings you the most mundane shopping exp
 ### Installation
 
 1. **Clone the repository**:
-   \`\`\`sh
+   ```sh
    git clone https://github.com/Davislyu/YawnMart.git
    cd YawnMart
-   \`\`\`
+   ```
 
 2. **Install dependencies**:
-   \`\`\`sh
+   ```sh
    npm install
    # or
    yarn install
-   \`\`\`
+   ```
 
 3. **Run the application**:
-   \`\`\`sh
+   ```sh
    npm run dev
    # or
    yarn dev
-   \`\`\`
+   ```
 
-4. **Open your browser** and navigate to \`http://localhost:3000\`.
+4. **Open your browser** and navigate to `http://localhost:3000`.
 
 ## Contributing
 
@@ -76,17 +76,17 @@ We welcome contributions from the community! To contribute:
 
 1. **Fork the repository**.
 2. **Create a new branch**:
-   \`\`\`sh
+   ```sh
    git checkout -b feature/your-feature-name
-   \`\`\`
+   ```
 3. **Commit your changes**:
-   \`\`\`sh
+   ```sh
    git commit -m "Add some feature"
-   \`\`\`
+   ```
 4. **Push to the branch**:
-   \`\`\`sh
+   ```sh
    git push origin feature/your-feature-name
-   \`\`\`
+   ```
 5. **Create a Pull Request**.
 
 ## License

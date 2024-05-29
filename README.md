@@ -100,3 +100,7 @@ Thank you for checking out **YawnMart**! If you have any questions or feedback, 
 ---
 
 ![YawnMart](https://user-images.githubusercontent.com/yourimage.jpg)
+<img width="1719" alt="image" src="https://github.com/Davislyu/YawnMart/assets/27707434/03433011-dcae-4d2f-81ca-8ce28d5d7777">
+![image](https://github.com/Davislyu/YawnMart/assets/27707434/afbbc61c-33f6-459c-bbf5-cdd8a22e4f39)
+
+

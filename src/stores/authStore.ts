@@ -1,9 +1,10 @@
 import { defineStore } from "pinia";
 import axios from "@/plugins/axios";
 import type { APIResponse, User } from "@/types/index";
-export const userAuthStore = defineStore("AuthStore", {
+import { getLocalStorageData } from "@/lib/utils";
+export const useAuthStore = defineStore("AuthStore", {
   state: () => ({
-    user: {} as User,
+    user: getLocalStorageData<User | null>("currentUserContent", true),
   }),
 
   actions: {

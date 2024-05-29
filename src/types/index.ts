@@ -66,3 +66,10 @@ export type Products = paginationContent & {
   totalProducts: number;
   products: Product[];
 };
+
+export type Error = {
+  errors?: Record<string, string[]>;
+  statusCode: number;
+  message: string;
+  success: boolean;
+};

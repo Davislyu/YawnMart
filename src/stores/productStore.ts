@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import axios from "@/plugins/axios";
+import { handleSuccess, handleError } from "@/lib/utils";
 import type { APIResponse, Product, Products } from "@/types/index";
 
 export const useProductStore = defineStore("ProductStore", {
@@ -27,7 +28,9 @@ export const useProductStore = defineStore("ProductStore", {
           );
           console.log("products", data.data);
           resolve(data.data);
+          handleSuccess(data.statusCode.toString(), data.message);
         } catch (error) {
+          handleError(error);
           reject(error);
         }
       });
@@ -42,6 +45,8 @@ export const useProductStore = defineStore("ProductStore", {
           this.productsData = data.data;
           resolve(data.data);
         } catch (error) {
+          handleError(error);
+
           reject(error);
         }
       });
@@ -56,8 +61,12 @@ export const useProductStore = defineStore("ProductStore", {
           console.log("products", data.data);
           // this.productsData.products = this.productsData.products.filter(p => p._id !== productId);
           await this.getProducts(1, 2);
+
           resolve(data.data);
+          handleSuccess(data.statusCode.toString(), data.message);
         } catch (error) {
+          handleError(error);
+
           reject(error);
         }
       });
@@ -70,7 +79,10 @@ export const useProductStore = defineStore("ProductStore", {
           );
           console.log("product", data.data);
           resolve(data.data);
+          handleSuccess(data.statusCode.toString(), data.message);
         } catch (error) {
+          handleError(error);
+
           reject(error);
         }
       });
@@ -101,8 +113,10 @@ export const useProductStore = defineStore("ProductStore", {
           );
           console.log("product", data.data);
           await this.getProducts(1, 2);
+          handleSuccess(data.statusCode.toString(), data.message);
           resolve(data.data);
         } catch (error) {
+          handleError(error);
           reject(error);
         }
       });

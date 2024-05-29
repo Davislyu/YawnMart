@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import { ref } from "vue";
   import { RouterLink, useRouter } from "vue-router";
+  import { handleError, handleSuccess } from "@/lib/utils";
   import {
     Card,
     CardContent,
@@ -20,7 +21,7 @@
     SelectTrigger,
     SelectValue,
   } from "@/components/ui/select";
-  import { userAuthStore } from "@/stores/authStore";
+  import { useAuthStore } from "@/stores/authStore";
   type PAYLOAD = {
     email: string;
     password: string;
@@ -34,12 +35,18 @@
     role: "ADMIN",
   });
   const router = useRouter();
-  const store = userAuthStore();
+  const store = useAuthStore();
   const onSubmit = async () => {
     try {
       await store.registerUser(form.value);
       router.push("/"); //Routing to HomeView.vue
+      handleSuccess(
+        `Registered successfully!`,
+        `Welcome ${form.value.username}`
+      );
     } catch (error) {
+      handleError(error);
+
       console.log(error);
     } finally {
     }

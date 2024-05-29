@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import { ref } from "vue";
   import { RouterLink, useRouter } from "vue-router";
+  import { handleError, handleSuccess } from "@/lib/utils";
   import {
     Card,
     CardContent,
@@ -12,7 +13,7 @@
   import { Button } from "@/components/ui/button";
   import { Input } from "@/components/ui/input";
   import { Label } from "@/components/ui/label";
-  import { userAuthStore } from "@/stores/authStore";
+  import { useAuthStore } from "@/stores/authStore";
   type PAYLOAD = {
     password: string;
     username: string;
@@ -22,13 +23,19 @@
     username: "hafiz",
   });
   const router = useRouter();
-  const store = userAuthStore();
+  const store = useAuthStore();
 
   const onSubmit = async () => {
     try {
       await store.loginUser(form.value);
       await router.push("/");
+      handleSuccess(
+        `Welcome ${form.value.username}!`,
+        "Its a plessure having you here ❤️ "
+      );
     } catch (error) {
+      handleError(error);
+
       console.log(error);
     } finally {
     }

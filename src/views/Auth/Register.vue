@@ -86,7 +86,7 @@
               <Input
                 id="password"
                 placeholder="password"
-                ype="password"
+                type="password"
                 v-model="form.password" />
             </div>
             <div class="grid grid-1">

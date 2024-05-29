@@ -70,26 +70,6 @@ YawnMart is an e-commerce platform that brings you the most mundane shopping exp
 
 4. **Open your browser** and navigate to \`http://localhost:3000\`.
 
-## Project Structure
-
-\`\`\`plaintext
-YawnMart/
-├── public/               # Static files
-├── src/
-│   ├── assets/           # Images, fonts, etc.
-│   ├── components/       # Vue components
-│   ├── views/            # View components
-│   ├── store/            # Vuex store
-│   ├── router/           # Vue router configuration
-│   ├── utils/            # Utility functions
-│   ├── App.vue           # Main Vue component
-│   ├── main.ts           # Entry point
-├── .gitignore            # Git ignore file
-├── README.md             # Project documentation
-├── package.json          # NPM package file
-└── tailwind.config.js    # Tailwind CSS configuration
-\`\`\`
-
 ## Contributing
 
 We welcome contributions from the community! To contribute:
